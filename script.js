@@ -9,7 +9,7 @@ context.fillStyle = "white";
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 const image = new Image();
-image.src = "./img/My Map.png";
+image.src = "./img/Tomo Valley Map.png";
 console.log(image);
 
 image.onload = () => {
