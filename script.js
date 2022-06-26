@@ -318,7 +318,7 @@ function animate() {
       });
   }
 }
-animate();
+// animate();
 
 const battleBackgroundImage = new Image();
 battleBackgroundImage.src = "./img/battleBackground.png";
@@ -345,12 +345,28 @@ const dreepy = new Sprite({
   animate: true,
 });
 
+const burnyImage = new Image();
+burnyImage.src = "./img/burnySprite.png";
+const burny = new Sprite({
+  position: {
+    x: 280,
+    y: 325,
+  },
+  image: burnyImage,
+  frames: {
+    max: 4,
+    hold: 50,
+  },
+  animate: true,
+});
+
 function animateBattle() {
   window.requestAnimationFrame(animateBattle);
   battleBackground.draw();
   dreepy.draw();
+  burny.draw();
 }
-
+// animate();
 animateBattle();
 
 let lastKey = "";
