@@ -1,6 +1,6 @@
 const canvas = document.querySelector("canvas");
-
 const context = canvas.getContext("2d");
+console.log(battleZones);
 
 canvas.width = 1024;
 canvas.height = 576;
