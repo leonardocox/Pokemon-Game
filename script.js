@@ -1,6 +1,6 @@
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
-console.log(battleZones);
+console.log(battleZonesData);
 
 canvas.width = 1024;
 canvas.height = 576;
@@ -9,6 +9,11 @@ canvas.height = 576;
 const collisionsMap = [];
 for (let i = 0; i < collisions.length; i += 70) {
   collisionsMap.push(collisions.slice(i, 70 + i));
+}
+
+const battleZonesMap = [];
+for (let i = 0; i < battleZonesData.length; i += 70) {
+  battleZonesMap.push(battleZonesData.slice(i, 70 + i));
 }
 
 const boundaries = [];
@@ -30,6 +35,24 @@ collisionsMap.forEach((row, i) => {
       );
   });
 });
+
+const battleZones = [];
+
+battleZonesMap.forEach((row, i) => {
+  row.forEach((symbol, j) => {
+    if (symbol === 1025)
+      battleZones.push(
+        new Boundary({
+          position: {
+            x: j * Boundary.width + offset.x,
+            y: i * Boundary.height + offset.y,
+          },
+        })
+      );
+  });
+});
+
+console.log(battleZones);
 
 // Making sure the sprite and map are loading in properly and at the right time
 const image = new Image();
