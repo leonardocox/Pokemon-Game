@@ -191,10 +191,15 @@ function animate() {
             gsap.to("#battle-transition", {
               opacity: 1,
               duration: 0.4,
+              onComplete() {
+                // Activate a new animation loop
+                animateBattle();
+                gsap.to("#battle-transition", {
+                  opacity: 0,
+                  duration: 0.4,
+                });
+              },
             });
-
-            // Activate a new animation loop
-            animateBattle();
           },
         });
         break;
@@ -314,9 +319,18 @@ function animate() {
 }
 animate();
 
+const battleBackgroundImage = new Image();
+battleBackgroundImage.src = "./img/battleBackground.png";
+const battleBackground = new Sprite({
+  position: {
+    x: 0,
+    y: 0,
+  },
+  image: battleBackgroundImage,
+});
 function animateBattle() {
   window.requestAnimationFrame(animateBattle);
-  console.log("animating battle");
+  battleBackground.draw();
 }
 
 let lastKey = "";
