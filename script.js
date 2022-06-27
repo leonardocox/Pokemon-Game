@@ -366,7 +366,7 @@ function animateBattle() {
   dreepy.draw();
   burny.draw();
 }
-// animate();
+//animate();
 animateBattle();
 
 let lastKey = "";
